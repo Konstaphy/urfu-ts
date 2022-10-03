@@ -1,2 +1,2 @@
 Typescript выводит ошибку: age не string
-![img.png](img.png)
+![img.png](first.png)
