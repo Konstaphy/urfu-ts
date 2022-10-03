@@ -6,4 +6,6 @@ function capitalizeFirstLettersAndRemoveIndexWord(sentence: string): string {
         .join(" ")
 }
 
-console.log(capitalizeFirstLettersAndRemoveIndexWord("Не волнуйтесь, если что-то не работает. Если бы всё работало, вас бы уволили."));
+console.log(capitalizeFirstLettersAndRemoveIndexWord(
+    "Не волнуйтесь, если что-то не работает. Если бы всё работало, вас бы уволили."
+));
