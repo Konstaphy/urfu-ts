@@ -1,6 +1,6 @@
-type Cat = {
-    name: string,
-    meow: () => string,
+class Cat {
+    constructor(private readonly  name: string, readonly meow: () => string) {
+    }
 }
 
 type Dog = {
@@ -8,10 +8,7 @@ type Dog = {
     bark: () => string,
 }
 
-const cat: Cat = {
-    name: 'Pushok',
-    meow: () => 'meow!'
-};
+const cat = new Cat("Pushok", () => "meow!")
 
 const dog: Dog = {
     name: 'Bobik',
@@ -30,14 +27,19 @@ function petIsCat(pet: Dog | Cat): pet is Cat {
 }
 
 function whatDoesThePetSay(pet: Dog | Cat): string {
-    if (petIsCat(pet)) {
+    if (pet instanceof Cat || petIsCat(pet)) {
         return pet.meow()
     }
     if ("bark" in pet) {
-        pet.bark()
+        return pet.bark()
     }
     return ""
 }
 
+console.log(whatDoesThePetSay(cat))
+console.log(whatDoesThePetSay(dog))
+
+
 // Если под "обычным тайпгардом" воспринимается инстансоф, то тут он бессилен, потому что цепочка прототипов
 // не содержит типы тайпскрипта
+// UPD: переделал cat под класс, который позже войдет в скоуп JS и инстансоф будет работать
